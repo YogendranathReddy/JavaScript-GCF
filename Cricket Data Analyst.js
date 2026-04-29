@@ -1,0 +1,481 @@
+const cricketData = [
+    {
+        name: "Sachin Tendulkar",
+        role: "Batsman",
+        strengths: [
+            "Technical perfectionist",
+            "Consistency across formats",
+            "Pressure performance specialist",
+            "Elite cover drive",
+            "Mental toughness"
+        ],
+        weaknesses: [
+            "Limited strike rate in T20s",
+            "Late spin adaptation"
+        ],
+        international: {
+            ODI: { batting: "18426 runs, Avg 44.8", bowling: "1 wicket", fielding: "140 catches" },
+            T20: { batting: "10 matches, 137 runs", bowling: "0 wickets", fielding: "4 catches" },
+            Test: { batting: "15921 runs, Avg 53.8", bowling: "46 wickets", fielding: "115 catches" }
+        },
+        IPL: { batting: "140 runs", bowling: "0 wickets", fielding: "1 catch" }
+    },
+    {
+        name: "MS Dhoni",
+        role: "Wicketkeeper",
+        strengths: [
+            "Captaincy genius",
+            "Finishing specialist",
+            "Lightning stumpings",
+            "Calm under pressure",
+            "Match-winning instincts"
+        ],
+        weaknesses: [
+            "Limited Test batting",
+            "Recent batting form"
+        ],
+        international: {
+            ODI: { batting: "10773 runs, Avg 50.5", bowling: "0", fielding: "444 dismissals" },
+            T20: { batting: "1617 runs, SR 126", bowling: "0", fielding: "91 dismissals" },
+            Test: { batting: "4876 runs, Avg 38.1", bowling: "0", fielding: "256 dismissals" }
+        },
+        IPL: { batting: "5082 runs", bowling: "0 wickets", fielding: "142 dismissals" }
+    },
+    {
+        name: "Virat Kohli",
+        role: "Batsman",
+        strengths: [
+            "Chase master",
+            "Fitness benchmark",
+            "Cover drive perfection",
+            "Captaincy aggression",
+            "Consistency machine"
+        ],
+        weaknesses: [
+            "Spin struggles overseas",
+            "Recent Test form dip"
+        ],
+        international: {
+            ODI: { batting: "13906 runs, Avg 58.1", bowling: "1", fielding: "113 catches" },
+            T20: { batting: "4040 runs, SR 139", bowling: "4 wickets", fielding: "54 catches" },
+            Test: { batting: "8848 runs, Avg 49.2", bowling: "0", fielding: "111 catches" }
+        },
+        IPL: { batting: "7263 runs", bowling: "5 wickets", fielding: "63 catches" }
+    },
+    {
+        name: "Rohit Sharma",
+        role: "Batsman",
+        strengths: [
+            "T20 game-changer",
+            "ODI double century",
+            "Pull shot master",
+            "Captaincy success",
+            "Powerplay dominance"
+        ],
+        weaknesses: [
+            "Test consistency",
+            "Early career inconsistency"
+        ],
+        international: {
+            ODI: { batting: "10850 runs, Avg 49.1", bowling: "27 wickets", fielding: "62 catches" },
+            T20: { batting: "4230 runs, SR 140", bowling: "17 wickets", fielding: "44 catches" },
+            Test: { batting: "4147 runs, Avg 42.7", bowling: "7 wickets", fielding: "25 catches" }
+        },
+        IPL: { batting: "6617 runs", bowling: "18 wickets", fielding: "49 catches" }
+    },
+    {
+        name: "KL Rahul",
+        role: "Batsman",
+        strengths: [
+            "Elegant strokeplay",
+            "ODI opening specialist",
+            "Wicketkeeping skills",
+            "T20 consistency",
+            "Test potential"
+        ],
+        weaknesses: [
+            "Big innings conversion",
+            "Pressure handling"
+        ],
+        international: {
+            ODI: { batting: "2389 runs, Avg 49.7", bowling: "0", fielding: "22 catches" },
+            T20: { batting: "2264 runs, SR 138", bowling: "1 wicket", fielding: "31 catches" },
+            Test: { batting: "3046 runs, Avg 33.9", bowling: "0", fielding: "39 catches" }
+        },
+        IPL: { batting: "4680 runs", bowling: "3 wickets", fielding: "37 catches" }
+    },
+    {
+        name: "Hardik Pandya",
+        role: "All-Rounder",
+        strengths: [
+            "Explosive batting",
+            "Death bowling specialist",
+            "Fielding athleticism",
+            "Finishing ability",
+            "Big match temperament"
+        ],
+        weaknesses: [
+            "Recurring injuries",
+            "Test bowling consistency"
+        ],
+        international: {
+            ODI: { batting: "1277 runs, SR 114", bowling: "55 wickets", fielding: "23 catches" },
+            T20: { batting: "1058 runs, SR 140", bowling: "42 wickets", fielding: "21 catches" },
+            Test: { batting: "430 runs", bowling: "17 wickets", fielding: "2 catches" }
+        },
+        IPL: { batting: "2980 runs", bowling: "158 wickets", fielding: "40 catches" }
+    },
+    {
+        name: "Ravindra Jadeja",
+        role: "All-Rounder",
+        strengths: [
+            "World-class fielder",
+            "Left-arm spin variety",
+            "Lower-order hitting",
+            "Match-winning all-rounder",
+            "Fitness monster"
+        ],
+        weaknesses: [
+            "Overseas batting",
+            "Limited ODI batting"
+        ],
+        international: {
+            ODI: { batting: "2501 runs", bowling: "220 wickets", fielding: "74 catches" },
+            T20: { batting: "539 runs", bowling: "35 wickets", fielding: "16 catches" },
+            Test: { batting: "2896 runs", bowling: "312 wickets", fielding: "42 catches" }
+        },
+        IPL: { batting: "1515 runs", bowling: "152 wickets", fielding: "55 catches" }
+    },
+    {
+        name: "Jasprit Bumrah",
+        role: "Bowler",
+        strengths: [
+            "Unique action",
+            "Yorker perfection",
+            "Death overs specialist",
+            "Reverse swing master",
+            "Mental aggression"
+        ],
+        weaknesses: [
+            "Early career injuries",
+            "Limited T20 economy"
+        ],
+        international: {
+            ODI: { batting: "15 runs", bowling: "149 wickets, Avg 23.5", fielding: "16 catches" },
+            T20: { batting: "15 runs", bowling: "71 wickets, Econ 6.2", fielding: "9 catches" },
+            Test: { batting: "165 runs", bowling: "180 wickets, Avg 20.1", fielding: "13 catches" }
+        },
+        IPL: { batting: "109 runs", bowling: "165 wickets", fielding: "20 catches" }
+    },
+    {
+        name: "Mohammed Shami",
+        role: "Bowler",
+        strengths: [
+            "Express pace",
+            "Reverse swing wizard",
+            "Seam movement",
+            "Big-match performer",
+            "ODI wicket-taker"
+        ],
+        weaknesses: [
+            "Injury proneness",
+            "T20 consistency"
+        ],
+        international: {
+            ODI: { batting: "222 runs", bowling: "195 wickets", fielding: "24 catches" },
+            T20: { batting: "21 runs", bowling: "18 wickets", fielding: "6 catches" },
+            Test: { batting: "293 runs", bowling: "180 wickets", fielding: "12 catches" }
+        },
+        IPL: { batting: "70 runs", bowling: "126 wickets", fielding: "15 catches" }
+    },
+    {
+        name: "Rishabh Pant",
+        role: "Wicketkeeper",
+        strengths: [
+            "Aggressive batting",
+            "Diving catches",
+            "Spin hitting ability",
+            "Test match warrior",
+            "X-factor player"
+        ],
+        weaknesses: [
+            "Shot selection",
+            "Keeping consistency"
+        ],
+        international: {
+            ODI: { batting: "865 runs", bowling: "0", fielding: "20 dismissals" },
+            T20: { batting: "648 runs, SR 164", bowling: "0", fielding: "20 dismissals" },
+            Test: { batting: "2727 runs, Avg 43.8", bowling: "0", fielding: "121 dismissals" }
+        },
+        IPL: { batting: "2084 runs", bowling: "1 wicket", fielding: "48 dismissals" }
+    },
+    {
+        name: "Shubman Gill",
+        role: "Batsman",
+        strengths: [
+            "Classic technique",
+            "ODI consistency",
+            "Youthful promise",
+            "Cover drive elegance",
+            "Captaincy potential"
+        ],
+        weaknesses: [
+            "Test experience",
+            "Pace bowling weakness"
+        ],
+        international: {
+            ODI: { batting: "2531 runs, Avg 58.8", bowling: "0", fielding: "16 catches" },
+            T20: { batting: "863 runs, SR 139", bowling: "0", fielding: "8 catches" },
+            Test: { batting: "1040 runs, Avg 32.5", bowling: "0", fielding: "7 catches" }
+        },
+        IPL: { batting: "2419 runs", bowling: "0 wickets", fielding: "23 catches" }
+    },
+    {
+        name: "Yuvraj Singh",
+        role: "All-Rounder",
+        strengths: [
+            "Six sixes in an over",
+            "Left-hand power",
+            "Slow left-arm spin",
+            "Fielding flair",
+            "Big-match player"
+        ],
+        weaknesses: [
+            "Fitness issues",
+            "Test consistency"
+        ],
+        international: {
+            ODI: { batting: "8700 runs", bowling: "111 wickets", fielding: "116 catches" },
+            T20: { batting: "1177 runs", bowling: "28 wickets", fielding: "12 catches" },
+            Test: { batting: "300 runs", bowling: "9 wickets", fielding: "2 catches" }
+        },
+        IPL: { batting: "1179 runs", bowling: "38 wickets", fielding: "15 catches" }
+    },
+    {
+        name: "Sourav Ganguly",
+        role: "Batsman",
+        strengths: [
+            "Captaincy transformation",
+            "Off-side mastery",
+            "Team builder",
+            "ODI aggression",
+            "Leadership icon"
+        ],
+        weaknesses: [
+            "Early career failures",
+            "Limited T20 exposure"
+        ],
+        international: {
+            ODI: { batting: "11363 runs, Avg 41.0", bowling: "100 wickets", fielding: "131 catches" },
+            T20: { batting: "0 runs", bowling: "0", fielding: "0" },
+            Test: { batting: "7212 runs, Avg 42.1", bowling: "32 wickets", fielding: "82 catches" }
+        },
+        IPL: { batting: "482 runs", bowling: "9 wickets", fielding: "6 catches" }
+    },
+    {
+        name: "Virender Sehwag",
+        role: "Batsman",
+        strengths: [
+            "Test triple century",
+            "ODI double century",
+            "Fearless aggression",
+            "Opening fireworks",
+            "Spin destroyer"
+        ],
+        weaknesses: [
+            "Defensive technique",
+            "Late career form"
+        ],
+        international: {
+            ODI: { batting: "8273 runs, SR 104", bowling: "96 wickets", fielding: "93 catches" },
+            T20: { batting: "394 runs, SR 145", bowling: "2 wickets", fielding: "7 catches" },
+            Test: { batting: "8586 runs, Avg 49.3", bowling: "40 wickets", fielding: "91 catches" }
+        },
+        IPL: { batting: "848 runs", bowling: "8 wickets", fielding: "11 catches" }
+    },
+    {
+        name: "Anil Kumble",
+        role: "Bowler",
+        strengths: [
+            "10/74 in an innings",
+            "Flippers specialist",
+            "Captaincy resilience",
+            "Lower-order batting",
+            "Workhorse bowler"
+        ],
+        weaknesses: [
+            "Overseas struggles",
+            "Limited swing"
+        ],
+        international: {
+            ODI: { batting: "250 runs", bowling: "337 wickets", fielding: "60 catches" },
+            T20: { batting: "0", bowling: "0", fielding: "0" },
+            Test: { batting: "2506 runs", bowling: "619 wickets", fielding: "54 catches" }
+        },
+        IPL: { batting: "0 runs", bowling: "45 wickets", fielding: "4 catches" }
+    },
+    {
+        name: "Harbhajan Singh",
+        role: "Bowler",
+        strengths: [
+            "Doosra pioneer",
+            "ODI match-winner",
+            "Lower-order hitting",
+            "Captaincy experience",
+            "Big-match temperament"
+        ],
+        weaknesses: [
+            "Test batting",
+            "Recent form decline"
+        ],
+        international: {
+            ODI: { batting: "1285 runs", bowling: "269 wickets", fielding: "42 catches" },
+            T20: { batting: "108 runs", bowling: "20 wickets", fielding: "6 catches" },
+            Test: { batting: "2224 runs", bowling: "265 wickets", fielding: "42 catches" }
+        },
+        IPL: { batting: "414 runs", bowling: "127 wickets", fielding: "15 catches" }
+    },
+    {
+        name: "Zaheer Khan",
+        role: "Bowler",
+        strengths: [
+            "Reverse swing master",
+            "New ball threat",
+            "Leadership qualities",
+            "ODI death bowling",
+            "Mentor influence"
+        ],
+        weaknesses: [
+            "Injury setbacks",
+            "T20 economy"
+        ],
+        international: {
+            ODI: { batting: "796 runs", bowling: "282 wickets", fielding: "36 catches" },
+            T20: { batting: "7 runs", bowling: "17 wickets", fielding: "2 catches" },
+            Test: { batting: "1230 runs", bowling: "310 wickets", fielding: "22 catches" }
+        },
+        IPL: { batting: "83 runs", bowling: "102 wickets", fielding: "11 catches" }
+    },
+    {
+        name: "Ravichandran Ashwin",
+        role: "All-Rounder",
+        strengths: [
+            "600+ Test wickets",
+            "Carrom ball wizard",
+            "Lower-order batting",
+            "Strategy genius",
+            "ODI variety"
+        ],
+        weaknesses: [
+            "Overseas batting",
+            "T20 strike rate"
+        ],
+        international: {
+            ODI: { batting: "1530 runs", bowling: "172 wickets", fielding: "23 catches" },
+            T20: { batting: "93 runs", bowling: "32 wickets", fielding: "8 catches" },
+            Test: { batting: "2966 runs", bowling: "527 wickets", fielding: "38 catches" }
+        },
+        IPL: { batting: "955 runs", bowling: "171 wickets", fielding: "20 catches" }
+    },
+    {
+        name: "Gautam Gambhir",
+        role: "Batsman",
+        strengths: [
+            "IPL winning captain",
+            "ODI opener specialist",
+            "Big-match temperament",
+            "Pull shot power",
+            "Leadership aggression"
+        ],
+        weaknesses: [
+            "Test consistency",
+            "Limited T20 exposure"
+        ],
+        international: {
+            ODI: { batting: "5238 runs, Avg 39.7", bowling: "1 wicket", fielding: "73 catches" },
+            T20: { batting: "932 runs, SR 119", bowling: "0", fielding: "11 catches" },
+            Test: { batting: "4154 runs, Avg 38.1", bowling: "0", fielding: "47 catches" }
+        },
+        IPL: { batting: "4215 runs", bowling: "0 wickets", fielding: "38 catches" }
+    },
+    {
+        name: "Ishan Kishan",
+        role: "Wicketkeeper",
+        strengths: [
+            "T20 power-hitting",
+            "Aggressive opener",
+            "Quick stumpings",
+            "IPL consistency",
+            "Youth potential"
+        ],
+        weaknesses: [
+            "Test temperament",
+            "Keeping accuracy"
+        ],
+        international: {
+            ODI: { batting: "683 runs", bowling: "0", fielding: "15 dismissals" },
+            T20: { batting: "546 runs, SR 146", bowling: "0", fielding: "10 dismissals" },
+            Test: { batting: "149 runs", bowling: "0", fielding: "10 dismissals" }
+        },
+        IPL: { batting: "1609 runs", bowling: "0 wickets", fielding: "25 dismissals" }
+    }
+];
+
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', function() {
+    // Populate dropdown
+    const playerSelect = document.getElementById('playerSelect');
+    const playerCard = document.getElementById('playerCard');
+    
+    cricketData.forEach((player, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = player.name;
+        playerSelect.appendChild(option);
+    });
+
+    // Player selection handler
+    playerSelect.addEventListener('change', (e) => {
+        const index = e.target.value;
+        if (index !== '') {
+            displayPlayer(cricketData[index]);
+        } else {
+            playerCard.classList.remove('active');
+        }
+    });
+});
+
+function displayPlayer(player) {
+    // Update header
+    document.getElementById('playerName').textContent = player.name;
+    document.getElementById('playerRole').textContent = player.role;
+    document.getElementById('playerAvatar').textContent = player.name.charAt(0);
+    
+    // Update stats
+    const intl = player.international;
+    document.getElementById('odiBat').textContent = intl.ODI.batting;
+    document.getElementById('odiBowl').textContent = intl.ODI.bowling;
+    document.getElementById('odiField').textContent = intl.ODI.fielding;
+    document.getElementById('t20Bat').textContent = intl.T20.batting;
+    document.getElementById('t20Bowl').textContent = intl.T20.bowling;
+    document.getElementById('t20Field').textContent = intl.T20.fielding;
+    document.getElementById('testBat').textContent = intl.Test.batting;
+    document.getElementById('testBowl').textContent = intl.Test.bowling;
+    document.getElementById('testField').textContent = intl.Test.fielding;
+    
+    document.getElementById('iplBat').textContent = player.IPL.batting;
+    document.getElementById('iplBowl').textContent = player.IPL.bowling;
+    document.getElementById('iplField').textContent = player.IPL.fielding;
+    
+    // Update strengths and weaknesses
+    const strengthsList = document.getElementById('strengthsList');
+    const weaknessesList = document.getElementById('weaknessesList');
+    
+    strengthsList.innerHTML = player.strengths.map(str => `<li>${str}</li>`).join('');
+    weaknessesList.innerHTML = player.weaknesses.map(wk => `<li>${wk}</li>`).join('');
+    
+    // Show card
+    document.getElementById('playerCard').classList.add('active');
+}
+
+console.log('cricketData array with', cricketData.length, 'players loaded successfully!');

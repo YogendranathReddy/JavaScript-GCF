@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Cricket Players Database</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏏 Indian Cricket Legends</h1>
+            <p>Select a player to view detailed statistics and profile</p>
+        </div>
+        
+        <div class="selector">
+            <select class="player-select" id="playerSelect">
+                <option value="">Choose a player...</option>
+            </select>
+        </div>
+        
+        <div class="player-card" id="playerCard">
+            <div class="player-header">
+                <div class="player-avatar" id="playerAvatar">S</div>
+                <div class="player-info">
+                    <h2 id="playerName">Player Name</h2>
+                    <div class="role-badge" id="playerRole">Role</div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>🇮🇳 International Stats</h3>
+                    <div class="stat-row"><span>ODI Batting:</span><span id="odiBat">Avg 50</span></div>
+                    <div class="stat-row"><span>ODI Bowling:</span><span id="odiBowl">Avg 30</span></div>
+                    <div class="stat-row"><span>ODI Fielding:</span><span id="odiField">150+ catches</span></div>
+                    <div class="stat-row"><span>T20 Batting:</span><span id="t20Bat">Strike 140</span></div>
+                    <div class="stat-row"><span>T20 Bowling:</span><span id="t20Bowl">Econ 7.5</span></div>
+                    <div class="stat-row"><span>T20 Fielding:</span><span id="t20Field">80+ catches</span></div>
+                    <div class="stat-row"><span>Test Batting:</span><span id="testBat">Avg 55</span></div>
+                    <div class="stat-row"><span>Test Bowling:</span><span id="testBowl">Avg 35</span></div>
+                    <div class="stat-row"><span>Test Fielding:</span><span id="testField">100+ catches</span></div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>🏆 IPL Stats</h3>
+                    <div class="stat-row"><span>Batting:</span><span id="iplBat">5000+ runs</span></div>
+                    <div class="stat-row"><span>Bowling:</span><span id="iplBowl">100+ wickets</span></div>
+                    <div class="stat-row"><span>Fielding:</span><span id="iplField">90% catch rate</span></div>
+                </div>
+            </div>
+            
+            <div class="strengths-weaknesses">
+                <div class="sw-card strengths">
+                    <h3>✅ Strengths</h3>
+                    <ul class="sw-list" id="strengthsList"></ul>
+                </div>
+                <div class="sw-card weaknesses">
+                    <h3>❌ Weaknesses</h3>
+                    <ul class="sw-list" id="weaknessesList"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
